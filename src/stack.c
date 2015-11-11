@@ -1,6 +1,6 @@
 #include "stack.h"
 
-// Function to initialise a 'sNode' with a given value
+/* Function to initialise a 'sNode' with a given value */
 struct sNode* __init__snode(int value) {
 	struct sNode* newNode;
 	newNode = (struct sNode*)malloc(sizeof(struct sNode));
@@ -10,7 +10,7 @@ struct sNode* __init__snode(int value) {
 	return newNode;
 }
 
-// Function to create an empty Stack
+/* Function to create an empty Stack */
 struct Stack* INIT_STACK() {
 	struct Stack* SH;
 	SH = (struct Stack*)malloc(sizeof(struct Stack));
@@ -18,7 +18,7 @@ struct Stack* INIT_STACK() {
 	return SH;
 }
 
-// Function to add an element to the Stack
+/* Function to add an element to the Stack */
 void PUSH(struct Stack* SH, int value) {
 	struct sNode* newNode;
 	newNode = __init__snode(value);
@@ -32,10 +32,11 @@ void PUSH(struct Stack* SH, int value) {
 	}
 }
 
-// Function to remove an element from the Stack 
+/* Function to remove an element from the Stack */
 int POP(struct Stack* SH) {
 	if(SH->top==NULL) {
-		printf("Stack is empty");//TODO:Raise appropriate error instead of printing
+        // TODO: Raise appropriate error instead of printing
+		printf("Stack is empty");
 	}
 	else {
 		int top_value;
@@ -51,7 +52,7 @@ int POP(struct Stack* SH) {
 	}
 }
 
-// Function to print the Stack
+/* Function to print the Stack */
 void PRINT_STACK(struct Stack* SH) {
 	struct sNode* iter;
 	iter = SH->top;
