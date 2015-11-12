@@ -13,21 +13,19 @@
  * 		the queue.
  *		Use `PRINT_QUEUE()` to print out the Queue.
  *
- *	Example :
- *	
+ *	Example :	
  *		```
- *		int main() {
- *			struct Queue *Q;
- *			Q = INIT_QUEUE();
+ *		#include "queue.h"
  *
- *			ENQUEUE(Q, 1);
- *			ENQUEUE(Q, 2);
- *			ENQUEUE(Q, 3);
- *			DEQUEUE(Q);
- *
- *			PRINT_QUEUE(Q);
+ *		void main() {
+ *			struct Queue *Q = init_queue();
+ *			enqueue(Q, 1);
+ *			enqueue(Q, 2);
+ *			enqueue(Q, 3);
+ *			dequeue(Q);
+ *			print_queue(Q);
  *		}
- *		```
+ 		```
  *		Output :
  *			2 -> 3
  */
@@ -52,15 +50,15 @@ struct Queue {
 };
 
 /* Create empty Queue */
-struct Queue *INIT_QUEUE();
+struct Queue *init_queue();
 
 /* Function to remove an element from Queue and return the node */
-int DEQUEUE(struct Queue *);
+int dequeue(struct Queue *);
 
 /* Function to add an element to the Queue */
-void ENQUEUE(struct Queue *, int);
+void enqueue(struct Queue *, int);
 
 /* Function to print out the queue */
-void PRINT_QUEUE(struct Queue *);
+void print_queue(struct Queue *);
 
 #endif
