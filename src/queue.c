@@ -1,7 +1,7 @@
 #include "queue.h"
 
 /* Create empty Queue */
-struct Queue *INIT_QUEUE() {
+struct Queue *init_queue() {
     struct Queue *QH;
     QH = (struct Queue *)malloc(sizeof(struct Queue));
     QH->last = NULL;
@@ -11,7 +11,7 @@ struct Queue *INIT_QUEUE() {
 }
 
 /* Function to remove an element from Queue and return the node */
-int DEQUEUE(struct Queue *QH) {
+int dequeue(struct Queue *QH) {
     int to_return;
     if (QH->first == NULL && QH->last == NULL) {
         printf("Queue is already empty.\n");
@@ -32,7 +32,7 @@ int DEQUEUE(struct Queue *QH) {
 }
 
 /* Function to add an element to the Queue */
-void ENQUEUE(struct Queue *QH, int data) {
+void enqueue(struct Queue *QH, int data) {
     if (QH->last != NULL) {
         QH->last->back = (struct qNode *)malloc(sizeof(struct qNode));
         QH->last->back->next = QH->last;
@@ -52,7 +52,7 @@ void ENQUEUE(struct Queue *QH, int data) {
 }
 
 /* Print out the elements in the queue */
-void PRINT_QUEUE(struct Queue *QH) {
+void print_queue(struct Queue *QH) {
     struct qNode *iter = QH->first;
     printf("%d ", iter->data);
     while (true) {
