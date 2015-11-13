@@ -28,6 +28,8 @@ struct Graph *init_graph(int n, int flag_type) {
 		graph->matrix = (int **)malloc((n + 1)*sizeof(int *));
 		for (i = 1; i <= n; i++)
 			(graph->matrix)[i] = (int *)malloc((n+1)*sizeof(int));
+		for (i = 1; i <= n; i++)
+			(graph->list)[i].head = NULL;
 		for (i = 1; i <= n; i++) {
 			for(j = 1; j <= n; j++)
 				(graph->matrix)[i][j] = 0;
@@ -43,8 +45,9 @@ struct Graph *init_graph(int n, int flag_type) {
 void add_edge(struct Graph *graph, int node1, int node2, int weight) {
 	int f;
 	f = graph->flag_type;
+	struct node *temp;
 	if (f == LIST) {
-		struct node *temp = ((struct node *)malloc(sizeof(struct node)));
+		temp = (struct node *)malloc(sizeof(struct node));
 		temp->key = node2;
 		temp->weight = weight;
 		temp->next = (graph->list)[node1].head;
@@ -54,7 +57,7 @@ void add_edge(struct Graph *graph, int node1, int node2, int weight) {
 		(graph->matrix[node1][node2] = weight);
 	}
 	else {
-		struct node *temp = (struct node *)malloc(sizeof(struct node));
+		temp = (struct node *)malloc(sizeof(struct node));
 		temp->key = node2;
 		temp->weight = weight;
 		temp->next = (graph->list)[node1].head;
@@ -69,7 +72,9 @@ void to_list(struct Graph *graph) {
 	int i, j, f, n;
 	f = graph->flag_type;
 	n = graph->V;
+	printf("Checking f \n");
 	if (f == MATRIX) {
+		printf("Yes, f is equal to MATRIX\n");
 		struct node *temp;
 		graph->list = (struct Adjacency_Node *)malloc((n + 1)*sizeof(struct node));
 		temp = (struct node *)malloc(sizeof(struct node));
@@ -85,11 +90,10 @@ void to_list(struct Graph *graph) {
 					else
 						temp->next = (graph->list)[i].head;
 					(graph->list)[i].head = temp;
-					free(temp);
 				}
 			}
 		}
-		f = BOTH;
+		graph->flag_type = BOTH;
 	}
 	else {
 		return; /* raise error*/
@@ -117,7 +121,7 @@ void to_matrix(struct Graph *graph) {
 				iter = iter->next;
 			}
 		}
-		f = BOTH;
+		graph->flag_type = BOTH;
 	}
 	else {
 		return; /* raise error*/
@@ -128,13 +132,16 @@ void to_matrix(struct Graph *graph) {
 void print_graph(struct Graph *graph) {
 	int i, j, n;
 	n = graph->V;
+	int original_flag_type = graph->flag_type;
 	to_matrix(graph);
+	graph->flag_type = original_flag_type;
 	for (i = 1; i <= n; i++) {
 		for (j = 1; j <= n; j++)
 			printf("%d  ", (graph->matrix)[i][j]);
 		printf("\n");
 	}
 	to_list(graph);
+	graph->flag_type = original_flag_type;
 	for (i = 1; i <= n; i++) {
 		printf("Adjacency List of %d:",i);
 		struct node *iter = (graph->list)[i].head;

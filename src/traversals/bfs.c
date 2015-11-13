@@ -14,7 +14,11 @@ void print_attributes(struct attributes *nodes, int n) {
 void bfs(struct Graph *graph, struct attributes *nodes, int source) {
 	int i;
 	struct Queue *Q;
+	printf("Entered BFS.\n");
+	fflush(stdout);
 	to_list(graph);
+	printf("Finished to_list\n");
+	fflush(stdout);
 	Q = init_queue();
 
 	nodes[source].current_color = GRAY;

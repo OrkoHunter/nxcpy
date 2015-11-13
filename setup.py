@@ -24,9 +24,13 @@ libraries = [
 ext_modules = cythonize([
     Extension('*.*', ['*/*.pyx'],
         include_dirs=['src'],
+        extra_link_args=["-g"],
+        extra_compile_args=["-g"],
         libraries=['nxcpy']),
     Extension('*.*.*', ['*/*/*.pyx'],
         include_dirs=['src'],
+        extra_link_args=["-g"],
+        extra_compile_args=["-g"],
         libraries=['nxcpy'])]
 )
 
