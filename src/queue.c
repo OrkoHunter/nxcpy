@@ -25,9 +25,8 @@ int dequeue(struct Queue *QH) {
         else {
             QH->first = QH->first->back;
             QH->first->next = NULL;
-
-        return to_return;
         }
+        return to_return;
     }
 }
 
