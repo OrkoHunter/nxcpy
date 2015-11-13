@@ -25,7 +25,7 @@
  *			dequeue(Q);
  *			print_queue(Q);
  *		}
- 		```
+ *		```
  *		Output :
  *			2 -> 3
  */
