@@ -1,0 +1,7 @@
+graft nxcpy
+
+exclude nxcpy/*/.c
+
+include LICENCE.txt
+include README.md
+
