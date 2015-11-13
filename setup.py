@@ -25,7 +25,10 @@ ext_modules = cythonize([
     Extension('*.*', ['*/*.pyx'],
         include_dirs=['src'],
         libraries=['nxcpy']),
-])
+    Extension('*.*.*', ['*/*/*.pyx'],
+        include_dirs=['src'],
+        libraries=['nxcpy'])]
+)
 
 
 install_requires = ['networkx', 'decorator']
