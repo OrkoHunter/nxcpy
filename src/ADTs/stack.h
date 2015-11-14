@@ -24,7 +24,7 @@
  *			PRINT_STACK(S);
  *		}
  *		```
- *		Output : 
+ *		Output :
  *			2 <- 1
  */
 
@@ -47,7 +47,7 @@ struct Stack{
 };
 
 /* Function to create an empty Stack */
-struct Stack* INIT_STACK();
+struct Stack* INIT_STACK(void);
 
 /* Function to add an element to the Stack */
 void PUSH(struct Stack*, int);
@@ -59,4 +59,5 @@ int POP(struct Stack*);
 void PRINT_STACK(struct Stack*);
 
 #endif
+
 

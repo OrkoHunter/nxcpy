@@ -9,11 +9,11 @@
  *
  *	Operations :
  *		Use `INIT_QUEUE()` to initialize the queue.
- *		Use `ENQUEUE()` and `DEQUEUE()` functions for operations on 
+ *		Use `ENQUEUE()` and `DEQUEUE()` functions for operations on
  * 		the queue.
  *		Use `PRINT_QUEUE()` to print out the Queue.
  *
- *	Example :	
+ *	Example :
  *		```
  *		#include "queue.h"
  *
@@ -50,7 +50,7 @@ struct Queue {
 };
 
 /* Create empty Queue */
-struct Queue *init_queue();
+struct Queue *init_queue(void);
 
 /* Function to remove an element from Queue and return the node */
 int dequeue(struct Queue *);
