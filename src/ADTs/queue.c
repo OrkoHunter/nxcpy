@@ -61,6 +61,7 @@ void print_queue(struct Queue *QH) {
         else
             iter = iter->back;
             printf("-> %d ", iter->data);
-    }
+
+}
     printf("\n");
 }
