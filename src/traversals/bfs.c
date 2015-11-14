@@ -24,7 +24,6 @@ void print_attributes(struct attributes *nodes, int n) {
 void bfs(struct Graph *graph, struct attributes *nodes, int source) {
 	int i;
 	struct Queue *Q;
-	nodes = (struct attributes *)malloc((graph->V + 1)*sizeof(struct attributes));
 	init_attributes(nodes, graph->V);
 	to_list(graph);
 	Q = init_queue(Q);
@@ -48,5 +47,4 @@ void bfs(struct Graph *graph, struct attributes *nodes, int source) {
 		}
 		nodes[current_node].current_color = BLACK;  	
 	}
-	print_attributes(nodes, graph->V);
 }

@@ -7,13 +7,14 @@
  *	int main() {
  *		struct Graph *G;
  *		struct attributes *n;
- *			G = init_graph(4, LIST);
- *			add_edge(G, 1, 2, 1);
- *			add_edge(G, 2, 3, 2);
- *	 		add_edge(G, 2, 4, 3);
- *	 		add_edge(G, 4, 1, 4);
- *	 		bfs(G, n, 1);
- *	 		print_attributes(n, G->V);
+ *		G = init_graph(4, LIST);
+ *		add_edge(G, 1, 2, 1);
+ *		add_edge(G, 2, 3, 2);
+ *	 	add_edge(G, 2, 4, 3);
+ *	 	add_edge(G, 4, 1, 4);
+ *	 	n = (struct attributes *)malloc((G->V + 1)*sizeof(struct attributes));	
+ *		bfs(G, n, 1);
+ *	 	print_attributes(n, G->V);
  *	}
  *	
  *	[Out] : 
@@ -32,8 +33,8 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <limits.h>
-#include "graph.h"
-#include "queue.h"
+#include "ADTs/graph.h"
+#include "ADTs/queue.h"
 
 #define NIL 0
 #define INF INT_MAX
