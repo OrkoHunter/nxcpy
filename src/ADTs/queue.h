@@ -37,16 +37,13 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-/* A Queue data structure */
-struct qNode {
-	int data;
-	struct qNode *next;
-	struct qNode *back;
-};
+#define QUEUE_LIMIT 10000
 
+/* A Queue data structure */
 struct Queue {
-	struct qNode *first;
-	struct qNode *last;
+	int arr[QUEUE_LIMIT]
+	int head;
+	int tail;
 };
 
 /* Create empty Queue */
