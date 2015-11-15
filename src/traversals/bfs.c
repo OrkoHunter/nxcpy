@@ -15,7 +15,7 @@ void bfs(struct Graph *graph, struct attributes *nodes, int source) {
 	int i;
 	struct Queue *Q;
 	to_list(graph);
-	Q = init_queue(Q);
+	Q = init_queue();
 
 	nodes[source].current_color = GRAY;
 	nodes[source].distance = 0;
